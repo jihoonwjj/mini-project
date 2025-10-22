@@ -38,7 +38,7 @@ my_df_X_raw = pd.DataFrame(data=my_X_raw, columns=my_features_X)
 st.write(my_df_X_raw)
 
 # X 데이터 전처리.
-with open("../data/my_iris_scaler.pkl","rb") as f:
+with open("my_iris_scaler.pkl","rb") as f:
     my_scaler = pickle.load(f)
 my_X_scaled = my_scaler.transform(my_X_raw)     # fit_transform이 아닌 transform!!
 
@@ -47,7 +47,7 @@ my_df_X_scaled = pd.DataFrame(data=my_X_scaled, columns=my_features_X)
 st.write(my_df_X_scaled)
 
 # 예측.
-with open("../data/my_iris_classifier.pkl","rb") as f:
+with open("my_iris_classifier.pkl","rb") as f:
     my_classifier = pickle.load(f)
 
 my_proba = my_classifier.predict_proba(my_X_scaled)
